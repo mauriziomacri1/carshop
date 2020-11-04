@@ -30,5 +30,10 @@ public class CarRepository {
         public List<Car> getCars() {
             return carList;
         }
+
+    public Car getCar(int index) {
+        return carList.get (index);
+    }
+
     }
 
