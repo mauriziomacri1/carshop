@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 
-<h1>HI</h1>
-
+<h1>The Used Car dealers famous cars...</h1>
+<table>
+    <tr>
+        <th>Brand</th>
+        <th>Price</th>
+    </tr>
+     <tr th:each="car : ${carlist}">
+        <td th:text="${car.brand}">Brand</td>
+        <td th:text="${car.price}">price</td>
+    </tr>
+</table>
 </body>
 </html>
