@@ -30,7 +30,7 @@
     </thead>
     <tbody>
     <tr th:each="car,iter : ${carlist}">
-        <th scope="row"> <a href='/cardetails/'+'th:text="${iter.index}'">+</a></th>
+        <th scope="row"> <a href="/cardetails/1">+</a></th>
         <td th:text="${car.brand}">Brand</td>
         <td th:text="${car.model}">Model</td>
         <td th:text="${car.price}">price</td>
@@ -44,3 +44,5 @@
 </div>
 </body>
 </html>
+<!-- th:text="${iter.index}" -->
+
