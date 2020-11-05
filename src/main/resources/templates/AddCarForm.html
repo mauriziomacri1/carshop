@@ -10,12 +10,13 @@
 </head>
 <body>
     <div class="container">
-    <h1>New car</h1>
+    <h1>Add and Edit car</h1>
     <p></p>
     <p></p>
 
     <form action="/save" th:object="${car}" method="POST">
-        <div class="form-row col-sm-2">
+        <div class="form-row">
+            <div class="col-sm-4">
                 <label for="brand">Brand</label>
                 <select th:field="*{brand}" class="form-control bg-light text-dark" id="brand" aria-describedby="brandHelp">
                     <option value="Audi">Audi</option>
@@ -27,10 +28,11 @@
                     <option value="Skoda">Skoda</option>
                 </select>
                 <small id="brandHelp" class="form-text text-muted">Choose brand</small>
+            </div>
         </div>
         <p></p>
         <div class="form-row" >
-            <div class="col-sm-2 ">
+            <div class="col-sm-4">
                 <label for="model">Model</label>
                 <input type="text" th:field="*{model}" class="form-control bg-light text-dark" id="model" aria-describedby="modelHelp">
                 <small id="modelHelp" class="form-text text-muted">Model name</small>
@@ -39,28 +41,28 @@
 
         <p></p>
         <div class="form-row">
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <label for="year">Year</label>
                 <input type="text" th:field="*{year}" class="form-control bg-light text-dark" id="year" aria-describedby="yearHelp">
                 <small id="yearHelp" class="form-text text-muted">Year the car was produced</small>
             </div>
         </div>
         <div class="form-row">
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <label for="miles">Miles</label>
                 <input type="text" th:field="*{miles}" class="form-control bg-light text-dark" id="miles" aria-describedby="milesHelp">
                 <small id="milesHelp" class="form-text text-muted">How many miles have the car run</small>
             </div>
         </div>
         <div class="form-row">
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <label for="price">Price</label>
                 <input type="text" th:field="*{price}" class="form-control bg-light text-dark" id="price" aria-describedby="priceHelp">
                 <small id="priceHelp" class="form-text text-muted">Price in SEK</small>
             </div>
         </div>
         <p></p>
-        <div class="form-group">
+        <div class="form-row">
             <div class="col-sm-4">
                 <label for="description">Description</label>
                 <input type="text" th:field="*{description}" class="form-control bg-light text-dark" id="description" aria-placeholder="Enter a description">
@@ -68,7 +70,7 @@
             </div>
         </div>
         <p></p>
-        <div class="form-group">
+        <div class="form-row">
             <div class="col-sm-4">
                 <label for="picture">Picture</label>
                 <input type="text" th:field="*{pictureUrl}" class="form-control bg-light text-dark" id="picture" aria-describedby="pictureHelp">
