@@ -17,8 +17,16 @@
         <div class="form-row align-items-center">
             <div class="col-sm-2">
                 <label for="brand">Brand</label>
-                <input type="text" th:field="*{brand}" class="form-control" id="brand" aria-describedby="brandHelp">
-                <small id="brandHelp" class="form-text text-muted">Brand</small>
+                <select th:field="*{brand}" class="form-control" id="brand" aria-describedby="brandHelp">
+                    <option value="Audi">Audi</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Fiat">Fiat</option>
+                    <option value="Koenigsegg">Koenigsegg</option>
+                    <option value="SAAB">SAAB</option>
+                    <option value="Volvo">Volvo</option>
+                    <option value="Skoda">Skoda</option>
+                </select>
+                <small id="brandHelp" class="form-text text-muted">Choose brand</small>
             </div>
             <div class="col-sm-2">
                 <label for="model">Model</label>
