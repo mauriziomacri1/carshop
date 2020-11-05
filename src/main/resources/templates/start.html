@@ -3,22 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>The Car Dealer</title>
-    <link rel="stylesheet" href="start.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
 </head>
 <body>
-
-<h1>the used car dealers famous cars...</h1>
-<img src="https://di-uploads-pod1.dealerinspire.com/depaulachevy/uploads/2017/09/bad-used-cars-lot-1-1024x579.jpg">
-
-<table style="width:100%">
-
-    <tr>
-        <td><h2><a href="/carlist">See available cars</a></h2></td>
-        <td><h2><a href="mailto:webmaster@example.com">Email us</a></h2></td>
-    </tr>
-</table>
-
-<p>Used Car dealers ®</p>
-
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/carlist">Cars</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <h1 class="display-4">The used car dealers famous cars</h1>
+        <div><img class="center-block" src="https://di-uploads-pod1.dealerinspire.com/depaulachevy/uploads/2017/09/bad-used-cars-lot-1-1024x579.jpg"/> </div>
+        <p class="lead">We have the best used cars on the market</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="/carlist" role="button">See the cars....</a>
+        <a class="btn btn-primary btn-lg" href="mailto:danny@usedcars.com" role="button">Send us an email</a>
+        <br>
+        <h2>Used Car dealers ®</h2>
+    </div>
+</div>
+</div>
 </body>
 </html>
