@@ -8,6 +8,16 @@ public class Car {
     private int price;
     private String description;
 
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
+    }
+
+    private String pictureUrl;
+
 
     public String getModel() {
         return model;
@@ -30,13 +40,14 @@ public class Car {
         this.brand = brand;
     }
 
-    public Car(String brand, String model, int miles, int year, int price, String description) {
+    public Car(String brand, String model, int miles, int year, int price, String description, String pictureUrl) {
         this.brand = brand;
         this.model = model;
         this.miles = miles;
         this.year = year;
         this.price = price;
         this.description = description;
+        this.pictureUrl = pictureUrl;
     }
 
     public String getBrand() { return brand;    }
