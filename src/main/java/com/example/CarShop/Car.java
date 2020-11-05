@@ -9,6 +9,9 @@ public class Car {
     private String description;
     private String slug;
 
+    public Car() {
+    }
+
     public String getPictureUrl() {
         return pictureUrl;
     }
