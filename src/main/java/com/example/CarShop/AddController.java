@@ -19,7 +19,9 @@ public class AddController {
 
     @PostMapping("/save")
     public String set(@ModelAttribute Car car, RestTemplate restTemplate) {
-        if (car.isNew()) {
+        boolean newCar = true;
+        if (newCar) {
+        //if (car.isNew()) {
             restTemplate.postForObject("http://localhost:8080/cardetails/", car, Car.class);
             carrepos.addCar(car);
         }

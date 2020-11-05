@@ -1,0 +1,69 @@
+<<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css " integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Add car</title>
+</head>
+<body>
+<h1>New car</h1>
+<p></p>
+<p></p>
+
+<form action="/save" th:object="${car}" method="POST">
+    <div class="form-row align-items-center">
+        <div class="col-sm-2">
+            <label for="brand">Brand</label>
+            <select th:field="*{brand}" class="form-control" id="brand" aria-describedby="brandHelp">
+                <option>Audi</option>
+                <option>BMW</option>
+                <option>Fiat</option>
+                <option>Koenigsegg</option>
+                <option>SAAB</option>
+                <option>Volvo</option>
+                <option>Skoda</option>
+            </select>
+            <small id="brandHelp" class="form-text text-muted">Choose brand</small>
+        </div>
+        <div class="col-sm-2">
+            <label for="model">Model</label>
+            <input type="text" th:field="*{model}" class="form-control" id="model" aria-describedby="modelHelp">
+            <small id="modelHelp" class="form-text text-muted">Model name</small>
+        </div>
+    </div>
+    <p></p>
+    <div class="form-row align-items-center">
+        <div class="col-sm-2">
+            <label for="miles">Miles</label>
+            <input type="text" th:field="*{miles}" class="form-control" id="miles" aria-describedby="milesHelp">
+            <small id="milesHelp" class="form-text text-muted">How many miles have the car run?</small>
+        </div>
+        <div class="col-sm-2">
+            <label for="year">Year</label>
+            <input type="text" th:field="*{year}" class="form-control" id="year" aria-describedby="yearHelp">
+            <small id="yearHelp" class="form-text text-muted">What year was the car produced?</small>
+        </div>
+    </div>
+    <p></p>
+    <div class="form-group">
+        <div class="col-sm-2">
+            <label for="price">Price</label>
+            <input type="text" th:field="*{price}" class="form-control" id="price" aria-describedby="priceHelp">
+            <small id="priceHelp" class="form-text text-muted">Price in SEK</small>
+        </div>
+    </div>
+    <p></p>
+    <div class="form-group">
+        <div class="col-sm-4">
+            <label for="description">Description</label>
+            <input type="text" th:field="*{description}" class="form-control" id="description" aria-placeholder="Enter a description">
+        </div>
+    </div>
+    <p></p>
+    <button type="submit" class="btn btn-primary">Save car</button>
+</form>
+</body>
+</html>
