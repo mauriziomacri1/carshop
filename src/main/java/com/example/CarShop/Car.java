@@ -7,6 +7,7 @@ public class Car {
     private int year;
     private int price;
     private String description;
+    private String pictureUrl;
     private String slug;
 
     public Car() {
@@ -19,9 +20,6 @@ public class Car {
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
     }
-
-    private String pictureUrl;
-
 
     public String getModel() {
         return model;
