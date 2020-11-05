@@ -3,16 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Cardetails</title>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                  crossorigin="anonymous">
+        </head>
 </head>
 
 <body>
-<h1>Details</h1>
+    <div class="container">
 
-<p th:text="${car.brand}"></p>
-<p th:text="${car.year}"></p>
-<p th:text="${car.price}"></p>
+<div class="jumbotron">
+    <h1 class="display-4"> <p th:text="${car.slug}"></p></h1>
+    <button type="button" class="btn btn-primary">Buy this car</button>
+    <button type="button" class="btn btn-warning">Like this car</button>
+    <p th:text="${car.year}"></p>
+    <p th:text="${car.miles}"></p>
+    <p class="lead"><p th:text="${car.description}">
+    <p></p>
+    <hr class="my-4">
 
-<h2>Photo</h2>
+<img src="https://previews.123rf.com/images/artzzz/artzzz1808/artzzz180800073/119314402-amsterdam-netherlands-august-10-2014-retro-motor-car-volvo-144-in-the-city-street-.jpg" width="800" >
 
+</div>
+
+    <h2>Used Car dealers &reg</h2>
+</div>
 </body>
 </html>

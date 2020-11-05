@@ -7,6 +7,7 @@ public class Car {
     private int year;
     private int price;
     private String description;
+    private String slug;
 
     public String getPictureUrl() {
         return pictureUrl;
@@ -61,8 +62,13 @@ public class Car {
     public int getPrice() {
         return price;
     }
+    public int getMiles() {
+        return miles;
+    }
 
     public void setPrice(int price) {
         this.price = price;
     }
+
+    public String getSlug(){ return brand + "  " + model + " ,  " + price + " SEK";}
 }
