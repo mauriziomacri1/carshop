@@ -50,6 +50,8 @@ public class Car {
         this.description = description;
         this.pictureUrl = pictureUrl;
     }
+    public Car() {
+    }
 
     public String getBrand() { return brand;    }
 
