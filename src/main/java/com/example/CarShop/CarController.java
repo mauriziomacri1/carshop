@@ -18,6 +18,9 @@ public class CarController {
         return "start";
     }
 
+    @GetMapping("/search")
+    public String search() { return "search"; }
+
         @GetMapping("/carlist")
     public String carlist(Model model) {
         model.addAttribute("carlist", carrepos.carList);
@@ -47,4 +50,7 @@ public class CarController {
         }
         return "redirect:/";
     }
+
+
+
 }
