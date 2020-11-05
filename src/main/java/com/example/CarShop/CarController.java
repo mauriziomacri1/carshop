@@ -34,8 +34,23 @@ public class CarController {
     public String carDetails(Model model, @PathVariable int id) {
         Car car = carrepos.getCar(id);
         model.addAttribute("car", car);
+        model.addAttribute("carindex", id);
         return "cardetails";
     }
+
+    @GetMapping("/editcar/{id}")
+    public String caredit(Model model, @PathVariable int id) {
+        Car car = carrepos.getCar(id);
+        model.addAttribute("car", car);
+        return "AddCarForm";
+    }
+    @GetMapping("/buycar/{id}")
+    public String buyCar(Model model, @PathVariable int id) {
+        Car car = carrepos.getCar(id);
+        model.addAttribute("car", car);
+        return "buycar";
+    }
+
 
     @PostMapping("/save")
     public String set(@ModelAttribute Car car, RestTemplate restTemplate) {
