@@ -19,9 +19,10 @@ public class CarController {
     }
 
     @GetMapping("/search")
-    public String search() {
+    public String search(Model model) {
+        model.addAttribute("search", carrepos.carList);
         return "search";
-    }
+        }
 
     @GetMapping("/carlist")
     public String carlist(Model model) {
