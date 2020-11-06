@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Buy car</title>
     <!-- Required meta tags -->
@@ -12,6 +12,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 
 <h1>Your new:  <p th:text="${car.slug}"></p></h1>
 <div class="container">
@@ -19,53 +20,63 @@
 <container>
 
     <form action="/finalizepurchase/0" method="POST">
+=======
+<div class="container">
+    <h1>Buyer information for</h1>
+    <p></p>
+    <h4 class="display-4"> <p th:text="${car.slug}"></p></h4>
+    <p></p>
+    <form>
+>>>>>>> 5e1647fc64edbf6beadcc9c840c07a65c81d0ec8
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
+                <input type="email" class="form-control bg-light text-dark" id="inputEmail4">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
+                <input type="password" class="form-control bg-light text-dark" id="inputPassword4">
             </div>
         </div>
         <div class="form-group">
             <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <input type="text" class="form-control bg-light text-dark" id="inputAddress" placeholder="1234 Main St">
         </div>
         <div class="form-group">
             <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            <input type="text" class="form-control bg-light text-dark" id="inputAddress2" placeholder="Apartment, studio, or floor">
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
+            <div class="form-group col-md-4">
+                <label for="inputCountry">Country</label>
+                <input type="text" class="form-control bg-light text-dark" id="inputCountry">
             </div>
             <div class="form-group col-md-4">
-                <label for="inputState">Ort</label>
-                <select id="inputState" class="form-control">
+                <label for="inputCity">City</label>
+                <select id="inputCity" class="form-control bg-light text-dark">
                     <option selected>Choose...</option>
-                    <option>...</option>
+                    <option value="Stockholm">Stockholm</option>
+                    <option value="Gothenburg">Gothenburg</option>
+                    <option value="Boras">Borås</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
             <div class="form-group col-md-2">
-                <label for="inputZip">Posnummer</label>
-                <input type="text" class="form-control" id="inputZip">
+                <label for="inputZip">Zip code</label>
+                <input type="text" class="form-control bg-light text-dark" id="inputZip">
             </div>
         </div>
         <div class="form-group">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    Check me out
-                </label>
+                <label class="form-check-label" for="gridCheck">I agree to the terms and confirm my purchase</label>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Finalize purchase</button>
     </form>
-</container>
 </div>
 <button type="button" class="btn btn-dark"> <a href="/carlist"/> Back</button>
+<p></p>
+<p></p>
 </body>
 </html>

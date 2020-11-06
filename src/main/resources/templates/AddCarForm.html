@@ -29,15 +29,13 @@
                 </select>
                 <small id="brandHelp" class="form-text text-muted">Choose brand</small>
             </div>
-        </div>
-        <p></p>
-        <div class="form-row" >
             <div class="col-sm-4">
                 <label for="model">Model</label>
                 <input type="text" th:field="*{model}" class="form-control bg-light text-dark" id="model" aria-describedby="modelHelp">
                 <small id="modelHelp" class="form-text text-muted">Model name</small>
             </div>
         </div>
+        <p></p>
 
         <p></p>
         <div class="form-row">
@@ -46,8 +44,6 @@
                 <input type="text" th:field="*{year}" class="form-control bg-light text-dark" id="year" aria-describedby="yearHelp">
                 <small id="yearHelp" class="form-text text-muted">Year the car was produced</small>
             </div>
-        </div>
-        <div class="form-row">
             <div class="col-sm-4">
                 <label for="miles">Miles</label>
                 <input type="text" th:field="*{miles}" class="form-control bg-light text-dark" id="miles" aria-describedby="milesHelp">
@@ -60,6 +56,11 @@
                 <input type="text" th:field="*{price}" class="form-control bg-light text-dark" id="price" aria-describedby="priceHelp">
                 <small id="priceHelp" class="form-text text-muted">Price in SEK</small>
             </div>
+            <div class="col-sm-4">
+                <label for="picture">Picture</label>
+                <input type="text" th:field="*{pictureUrl}" class="form-control bg-light text-dark" id="picture" aria-describedby="pictureHelp">
+                <small id="pictureHelp" class="form-text text-muted">Enter the url for a picture</small>
+            </div>
         </div>
         <p></p>
         <div class="form-row">
@@ -70,13 +71,6 @@
             </div>
         </div>
         <p></p>
-        <div class="form-row">
-            <div class="col-sm-4">
-                <label for="picture">Picture</label>
-                <input type="text" th:field="*{pictureUrl}" class="form-control bg-light text-dark" id="picture" aria-describedby="pictureHelp">
-                <small id="pictureHelp" class="form-text text-muted">Enter the url for a picture</small>
-            </div>
-        </div>
         <button type="submit" class="btn btn-primary">Save car</button>
     </form>
     </div>

@@ -1,13 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"></meta>
     <title>Car super search</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="tablesearch.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+
 </head>
 <body>
 <h1>The <i>Used Car dealers</i>&reg  famous super car search...</h1>
 
+<div class="container">
+    <input class="form-control mb-4" id="tableSearch" type="text"
+           placeholder="Type something to search list items">
 
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Link</th>
+            <th scope="col">Maker</th>
+            <th scope="col">Model</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description1</th>
+        </tr>
+        </thead>
+        <tbody id="mySearch">
+        <tr th:each="car,iter : ${search}">
+            <th scope="row"> <a th:href="'/cardetails/' + ${iter.index}" >+</a></th>
+            <td th:text="${car.brand}">Brand</td>
+            <td th:text="${car.model}">Model</td>
+            <td th:text="${car.price}">price</td>
+            <td th:text="${car.description}">Description</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>
