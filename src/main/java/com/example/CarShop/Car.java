@@ -9,8 +9,10 @@ public class Car {
     private String description;
     private String pictureUrl;
     private String slug;
+    private boolean sold;
 
     public Car() {
+        sold = false;
     }
 
     public String getPictureUrl() {
@@ -58,6 +60,7 @@ public class Car {
         this.price = price;
         this.description = description;
         this.pictureUrl = pictureUrl;
+        this.sold = false;
     }
 
     public String getBrand() { return brand;    }
@@ -80,4 +83,12 @@ public class Car {
     }
 
     public String getSlug(){ return brand + "  " + model + " ,  " + price + " SEK";}
+
+    public boolean isSold() {
+        return sold;
+    }
+
+    public void setSold(boolean sold) {
+        this.sold = sold;
+    }
 }

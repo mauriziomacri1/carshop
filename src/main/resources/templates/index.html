@@ -28,7 +28,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="car,iter : ${carlist}">
+    <tr th:each="car,iter : ${cars}">
         <th scope="row"> <a th:href="'/cardetails/' + ${iter.index}" >+</a></th>
         <td th:text="${car.brand}">Brand</td>
         <td th:text="${car.model}">Model</td>

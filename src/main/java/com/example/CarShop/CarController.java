@@ -23,7 +23,7 @@ public class CarController {
 
         @GetMapping("/carlist")
     public String carlist(Model model) {
-        model.addAttribute("carlist", carrepos.carList);
+        model.addAttribute("cars", carrepos.getCars());//carlist
         return "index";
     }
 
@@ -51,9 +51,16 @@ public class CarController {
     public String buyCar(Model model, @PathVariable int id) {
         Car car = carrepos.getCar(id);
         model.addAttribute("car", car);
+        model.addAttribute("id", id);
         return "buycar";
     }
-
+    @PostMapping("/finalizepurchase/{id}")
+    public String finalizePurchase(@PathVariable int id) {
+        Car car = carrepos.getCar(id);
+        car.setSold(true);
+        System.out.println("Car sold!" + car.getSlug());
+        return "redirect:/carlist";
+    }
 
     @PostMapping("/save")
     public String set(@ModelAttribute Car car, RestTemplate restTemplate) {

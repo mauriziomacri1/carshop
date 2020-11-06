@@ -12,11 +12,13 @@
 </head>
 
 <body>
-<h2></h2>
+
+<h1>Your new:  <p th:text="${car.slug}"></p></h1>
 <div class="container">
 <body>
 <container>
-    <form>
+
+    <form action="/finalizepurchase/0" method="POST">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Email</label>
@@ -60,7 +62,7 @@
                 </label>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">FInalize purchase</button>
+        <button type="submit" class="btn btn-primary">Finalize purchase</button>
     </form>
 </container>
 </div>
