@@ -1,20 +1,30 @@
 package com.example.CarShop;
 
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
-class CarShopApplicationTests {
+
+public class CarShopApplicationTests {
+
 
 	@Test
-	void TestListLength() {
-		CarController carController = new CarController();
-		List<Car>  aList = new ArrayList<>();
-		aList = carController.carrepos.getCars();
-		//asserTrue(aList	.length() > 5);
+	void isFIATCarInStore() {
+		CarRepository carRepository = new CarRepository();
+		boolean result = carRepository.carInStore("FIAT");
+		Assertions.assertEquals(false, result);
 	}
 
+	@Test
+	void isSAABCarInStore() {
+		CarRepository carRepository = new CarRepository();
+		boolean result = carRepository.carInStore("SAAB");
+		Assertions.assertEquals(true, result);
+	}
 }

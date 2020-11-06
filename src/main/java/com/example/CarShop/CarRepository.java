@@ -23,13 +23,13 @@ public class CarRepository {
             carList.add(car);
         }
 
-        public int getNumberOfCarsInStore() {
-            return carList.size();
-        }
+    public int getNumberOfCarsInStore() {
+        return carList.size();
+    }
 
-        public void sortCarsByPrice() {
-            Collections.sort(carList, Car::compareTo);
-        }
+    public void sortCarsByPrice() {
+        Collections.sort(carList, Car::compareTo);
+    }
 
 /*        public List<Car> getCars() {
             return carList;
@@ -49,5 +49,15 @@ public class CarRepository {
         return templist.get(index);
     }
 
+    }
+    public boolean carInStore(String brand) {
+        //List<Car> carList = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.getBrand() == brand) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
