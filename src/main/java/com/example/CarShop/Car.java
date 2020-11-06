@@ -21,12 +21,20 @@ public class Car {
         this.pictureUrl = pictureUrl;
     }
 
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setMiles(int miles) {
+        this.miles = miles;
+    }
+
     public String getModel() {
         return model;
     }
 
     public void setModel(String model) {
-        model = model;
+        this.model = model;
     }
 
     public String getDescription() {
