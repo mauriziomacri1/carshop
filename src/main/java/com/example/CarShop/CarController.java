@@ -19,9 +19,11 @@ public class CarController {
     }
 
     @GetMapping("/search")
-    public String search() { return "search"; }
+    public String search() {
+        return "search";
+    }
 
-        @GetMapping("/carlist")
+    @GetMapping("/carlist")
     public String carlist(Model model) {
         model.addAttribute("carlist", carrepos.carList);
         return "index";
@@ -47,6 +49,7 @@ public class CarController {
         model.addAttribute("car", car);
         return "AddCarForm";
     }
+
     @GetMapping("/buycar/{id}")
     public String buyCar(Model model, @PathVariable int id) {
         Car car = carrepos.getCar(id);
@@ -65,7 +68,6 @@ public class CarController {
         }
         return "redirect:/";
     }
-
 
 
 }

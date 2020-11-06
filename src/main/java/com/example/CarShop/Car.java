@@ -60,17 +60,22 @@ public class Car {
         this.pictureUrl = pictureUrl;
     }
 
-    public String getBrand() { return brand;    }
+    public String getBrand() {
+        return brand;
+    }
 
-    public int getYear() { return year; }
+    public int getYear() {
+        return year;
+    }
 
     public int compareTo(Car car) {
-        return (this.price  - car.price);
+        return (this.price - car.price);
     }
 
     public int getPrice() {
         return price;
     }
+
     public int getMiles() {
         return miles;
     }
@@ -79,5 +84,7 @@ public class Car {
         this.price = price;
     }
 
-    public String getSlug(){ return brand + "  " + model + " ,  " + price + " SEK";}
+    public String getSlug() {
+        return brand + "  " + model + " ,  " + price + " SEK";
+    }
 }
