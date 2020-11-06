@@ -20,7 +20,7 @@ public class CarController {
 
     @GetMapping("/search")
     public String search(Model model) {
-        model.addAttribute("search", carrepos.carList);
+        model.addAttribute("search", carrepos.getCars());
         return "search";
         }
 

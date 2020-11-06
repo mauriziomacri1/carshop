@@ -49,7 +49,6 @@ public class CarRepository {
         return templist.get(index);
     }
 
-    }
     public boolean carInStore(String brand) {
         //List<Car> carList = new ArrayList<>();
         for (Car car : carList) {

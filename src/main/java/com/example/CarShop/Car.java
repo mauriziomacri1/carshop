@@ -88,8 +88,6 @@ public class Car {
     }
 
     public String getSlug(){ return brand + "  " + model + " ,  " + price + " SEK";}
-}
-    public String getSlug(){ return brand + "  " + model + " ,  " + price + " SEK";}
 
     public boolean isSold() {
         return sold;

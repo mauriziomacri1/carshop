@@ -12,22 +12,20 @@
 </head>
 
 <body>
-<<<<<<< HEAD
 
-<h1>Your new:  <p th:text="${car.slug}"></p></h1>
+
+<h1><p th:text="${car.slug}"></p></h1>
 <div class="container">
 <body>
 <container>
 
-    <form action="/finalizepurchase/0" method="POST">
-=======
+    <form action="'/finalizepurchase/' + ${id}" method="POST">
 <div class="container">
     <h1>Buyer information for</h1>
     <p></p>
     <h4 class="display-4"> <p th:text="${car.slug}"></p></h4>
     <p></p>
     <form>
->>>>>>> 5e1647fc64edbf6beadcc9c840c07a65c81d0ec8
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="inputEmail4">Email</label>
