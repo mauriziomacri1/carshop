@@ -3,6 +3,8 @@
 <head>
         <meta charset="UTF-8">
         <title>.:oo::: THE CAR DEALERS :::oo:.</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="tablesearch.js"></script>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,6 +18,9 @@
 <h2></h2>
 <div class="container">
 <h1>The <i>Used Car dealers</i>&reg  famous cars...</h1>
+    <div class="container">
+        <input class="form-control mb-4" id="tableSearch" type="text"
+               placeholder="Type something to search list items">
 
 <table class="table table-dark">
     <thead>
@@ -27,7 +32,7 @@
         <th scope="col">Description</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody  id="mySearch">
     <tr th:each="car,iter : ${cars}">
         <th scope="row"> <a th:href="'/cardetails/' + ${iter.index}" >+</a></th>
         <td th:text="${car.brand}">Brand</td>
