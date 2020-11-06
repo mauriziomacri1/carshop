@@ -58,5 +58,21 @@ public class CarRepository {
         }
         return false;
     }
+    public void replace(int pos, Car car)
+    {
+        Car loopcar;
+        int localpos = 0;
+        for (int i=0; i< carList.size(); i++)   {
+            loopcar = carList.get(i);
+            if (pos == localpos)   {
+                carList.remove(i);
+                break;
+            }
+            if (loopcar.isSold() == false) {
+                localpos++;
+            }
+        }
+        carList.add(car);
+    }
 }
 

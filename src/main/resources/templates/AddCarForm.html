@@ -13,8 +13,7 @@
     <h1>Add and Edit car</h1>
     <p></p>
     <p></p>
-
-    <form action="/save" th:object="${car}" method="POST">
+        <form th:action="'/save/' +${id}" th:object="${car}" method="POST">
         <div class="form-row">
             <div class="col-sm-4">
                 <label for="brand">Brand</label>

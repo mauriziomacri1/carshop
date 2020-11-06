@@ -33,6 +33,8 @@ public class CarController {
     @GetMapping("/addCar")
     public String addCar(Model model) {
         model.addAttribute("car", new Car());
+        int id = -1;
+        model.addAttribute("id", id);
         return "AddCarForm";
     }
 
@@ -66,13 +68,13 @@ public class CarController {
         return "redirect:/carlist";
     }
 
-    @PostMapping("/save")
-    public String set(@ModelAttribute Car car, RestTemplate restTemplate) {
-        if (true)
+    @PostMapping("/save/{id}")
+    public String set(@ModelAttribute Car car, @PathVariable int id) {
+        if (id < 0)
             carrepos.addCar(car);
 
         else {
-            //carrepos.EditCar(car);
+            carrepos.replace(id, car);
         }
         return "redirect:/";
     }
