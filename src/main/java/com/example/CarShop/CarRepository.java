@@ -50,7 +50,6 @@ public class CarRepository {
     }
 
     public boolean carInStore(String brand) {
-        //List<Car> carList = new ArrayList<>();
         for (Car car : carList) {
             if (car.getBrand() == brand) {
                 return true;
