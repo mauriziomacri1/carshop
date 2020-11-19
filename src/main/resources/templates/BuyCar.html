@@ -15,35 +15,36 @@
 
 <div class="container">
 <h1><p th:text="${car.slug}"></p></h1>
+    <h1><p th:text="${customer.name}"></p></h1>
 
-    <form th:action="'/finalizepurchase/' +${id}" method="POST">
+    <form th:action="'/finalizepurchase/' +${id}" th:object="${customer}" method="POST">
+
 <div class="container">
     <h1>Buyer information for</h1>
     <p></p>
-    <h4 class="display-4"> <p th:object="${car.slug}"></p></h4>
     <p></p>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control bg-light text-dark" id="inputEmail4">
+                <input type="email" class="form-control bg-light text-dark" id="inputEmail4" th:field="*{customer.email}">
             </div>
             <div class="form-group col-md-4">
                 <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control bg-light text-dark" id="inputPassword4">
+                <input type="password" class="form-control bg-light text-dark" id="inputPassword4" th:field="*{customer.name}">
             </div>
         </div>
         <div class="form-group">
             <label for="inputAddress">Address</label>
-            <input type="text" class="form-control bg-light text-dark" id="inputAddress" placeholder="1234 Main St">
+            <input type="text" class="form-control bg-light text-dark" id="inputAddress" th:field="*{customer.address}">
         </div>
         <div class="form-group">
             <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control bg-light text-dark" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            <input type="text" class="form-control bg-light text-dark" id="inputAddress2" th:field="*{customer.address2}">
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="inputCountry">Country</label>
-                <input type="text" class="form-control bg-light text-dark" id="inputCountry">
+                <input type="text" class="form-control bg-light text-dark" id="inputCountry" th:field="*{customer.country}">
             </div>
             <div class="form-group col-md-4">
                 <label for="inputCity">City</label>
@@ -57,7 +58,7 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="inputZip">Zip code</label>
-                <input type="text" class="form-control bg-light text-dark" id="inputZip">
+                <input type="text" class="form-control bg-light text-dark" id="inputZip" th:field="*{customer.zipcode}">
             </div>
         </div>
         <div class="form-group">
@@ -66,7 +67,8 @@
                 <label class="form-check-label" for="gridCheck">I agree to the terms and confirm my purchase</label>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Finalize purchase</button>
+    </div>
+    <button type="submit" class="btn btn-primary">Finalize purchase</button>
     </form>
 </div>
 <button type="button" class="btn btn-dark"> <a href="/carlist"/> Back</button>

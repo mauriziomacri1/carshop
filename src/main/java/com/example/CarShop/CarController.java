@@ -19,6 +19,9 @@ public class CarController {
 @Autowired
 private CarDBRepository carrepos;
 
+    @Autowired
+    private CustomerDBRepository cusrepos;
+
 
     @GetMapping("/")
     public String homePage() {
@@ -63,15 +66,22 @@ private CarDBRepository carrepos;
     @GetMapping("/buycar/{id}")
     public String buyCar(Model model, @PathVariable int id) {
         Car car = carrepos.getCar(id);
+        Customer cust = cusrepos.getCustomerList().get(0);
+        System.out.println("Customer name: " + cust.getName());
         model.addAttribute("car", car);
         model.addAttribute("id", id);
+        model.addAttribute("customer", cust);
         return "buycar";
     }
     @PostMapping("/finalizepurchase/{id}")
-    public String finalizePurchase(@PathVariable int id) {
+    public String finalizePurchase(@ModelAttribute Customer customer, @PathVariable int id) {
         Car car = carrepos.getCar(id);
         car.setSold(true);
         System.out.println("Car sold!" + car.getSlug());
+        if (customer == null)
+            System.out.println("Customer null");
+        else
+            System.out.println("Customer email" + customer.getEmail());
         return "redirect:/carlist";
     }
 
