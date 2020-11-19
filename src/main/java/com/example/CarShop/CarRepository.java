@@ -11,7 +11,8 @@ public class CarRepository {
     }
 
     private List<Car> carList = new ArrayList<>();
-        public CarRepository()
+
+    public CarRepository()
         {
             addCar(new Car("SAAB","9-5", 10000, 1999, 7000, "Soltak, automat", "http://lh4.ggpht.com/-C41mB8UNUAs/UPCxFdbGQWI/AAAAAAAAlcg/TpktfNFbgDc/s1600/2004-saab-9-5-sedan-00011.jpg"));
             addCar(new Car("Volvo", "V70", 8000, 2012, 95000, "En ägare", "http://st.motortrend.com/uploads/sites/10/2015/11/2009-volvo-v70-3.2-wagon-side-view.png"));

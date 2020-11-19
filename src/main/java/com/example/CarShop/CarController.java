@@ -1,5 +1,6 @@
 package com.example.CarShop;
 
+import org.springframework.beans.NotWritablePropertyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,12 +13,12 @@ import org.springframework.web.client.RestTemplate;
 import javax.sql.DataSource;
 
 @Controller
-
-
 public class CarController {
-    CarRepository carrepos = new CarRepository();
+  //  CarRepository carrepos = new CarRepository();
+
 @Autowired
-DataSource dataSource;
+private CarDBRepository carrepos;
+
 
     @GetMapping("/")
     public String homePage() {
