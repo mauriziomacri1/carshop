@@ -16,14 +16,14 @@ public class CarShopApplicationTests {
 
 	@Test
 	void isFIATCarInStore() {
-		CarRepository carRepository = new CarRepository();
+		CarDBRepository carRepository = new CarDBRepository();
 		boolean result = carRepository.carInStore("FIAT");
-		Assertions.assertEquals(false, result);
+		Assertions.assertEquals(true, result);
 	}
 
 	@Test
 	void isSAABCarInStore() {
-		CarRepository carRepository = new CarRepository();
+		CarDBRepository carRepository = new CarDBRepository();
 		boolean result = carRepository.carInStore("SAAB");
 		Assertions.assertEquals(true, result);
 	}

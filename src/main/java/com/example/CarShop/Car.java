@@ -1,6 +1,15 @@
 package com.example.CarShop;
 
 public class Car {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
     private String brand;
     private String model;
     private int miles;
@@ -52,7 +61,8 @@ public class Car {
         this.brand = brand;
     }
 
-    public Car(String brand, String model, int miles, int year, int price, String description, String pictureUrl) {
+    public Car(int id, String brand, String model, int miles, int year, int price, String description, String pictureUrl) {
+        this.id = id;
         this.brand = brand;
         this.model = model;
         this.miles = miles;
