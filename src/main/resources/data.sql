@@ -26,4 +26,4 @@ VALUES (5, 10000, 1999, 7000, 'Fint skick', 'https://images.hgmsites.net/hug/201
 INSERT INTO CARSTOCK (CARMODELID, MILES, YEAR, PRICE, DESCRIPTION, PICTUREURL, SOLD)
 VALUES (6, 3000, 2016, 150000, 'Ferarri-röd', 'https://smgmedia.blob.core.windows.net/images/128968/1024/fiat-500-convertible-ede2d53127d0.jpg', FALSE);
 
-INSERT INTO CUSTOMER (NAME, EMAIL, ADDRESS, ADDRESS2, ZIPCODE, CITY, COUNTRY) VALUES ('Hanna Carlsson', 'hanna.carlsson@hej.com','Storgatan 2',' ','12345','Storstan','Sweden');
+INSERT INTO CUSTOMER (NAME, EMAIL, ADDRESS, ADDRESS2, ZIPCODE, CITY, COUNTRY) VALUES ('Firstname and Lastname', ' ','Street',' ','zip code','City','Country');

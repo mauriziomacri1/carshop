@@ -15,8 +15,6 @@
 
 <div class="container">
 <h1><p th:text="${car.slug}"></p></h1>
-    <h1><p th:text="${customer.name}"></p></h1>
-
     <form th:action="'/finalizepurchase/' +${id}" th:object="${customer}" method="POST">
 
 <div class="container">
