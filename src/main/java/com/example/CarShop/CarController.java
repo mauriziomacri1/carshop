@@ -88,6 +88,7 @@ public class CarController {
         System.out.println("Car sold!" + car.getSlug());
         if (customer.getId() == 0)
            savedcustomer =  cusrepos.addCustomer(customer);
+        System.out.println("Customer: " + savedcustomer);
         if (customer == null)
             System.out.println("Customer null");
         else

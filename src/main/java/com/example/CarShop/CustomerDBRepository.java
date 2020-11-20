@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +30,7 @@ public class CustomerDBRepository {
 
     public int addCustomer(Customer customer) {
 
+        int generatedId = 0;
         Connection conn = null;
 
         String SqlStatement = "INSERT INTO CUSTOMER (NAME, EMAIL, ADDRESS, ADDRESS2, ZIPCODE, CITY, COUNTRY)" +
@@ -42,8 +40,15 @@ public class CustomerDBRepository {
         try {
             conn = dataSource.getConnection();
 
-            Statement stmt = conn.createStatement();
-            return stmt.executeUpdate(SqlStatement);
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO CUSTOMER (NAME, EMAIL, ADDRESS, ADDRESS2, ZIPCODE, CITY, COUNTRY)" +
+                    " VALUES('" +customer.getName() + "','" + customer.getEmail() + "','" + customer.getAddress() + "','" + customer.getAddress2() +"','" +
+                    customer.getZipcode() + "','" + customer.getCity() + "','" + customer.getCountry()+ "')");
+           // Statement stmt = conn.createStatement();
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                generatedId = rs.getInt(1);
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -54,7 +59,7 @@ public class CustomerDBRepository {
                 e.printStackTrace();
             }
         }
-        return 0;
+        return generatedId;
     }
 
     public void removeCustomer(int customerId) {
