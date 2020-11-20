@@ -30,8 +30,8 @@
                 <input type="email" class="form-control bg-light text-dark" id="inputEmail4" th:field="*{email}">
             </div>
             <div class="form-group col-md-4">
-                <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control bg-light text-dark" id="inputPassword4" th:field="*{name}">
+                <label for="inputName">Name</label>
+                <input type="text" class="form-control bg-light text-dark" id="inputName" th:field="*{name}">
             </div>
         </div>
         <div class="form-group">
@@ -49,13 +49,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="inputCity">City</label>
-                <select id="inputCity" class="form-control bg-light text-dark">
-                    <option selected>Choose...</option>
-                    <option value="Stockholm">Stockholm</option>
-                    <option value="Gothenburg">Gothenburg</option>
-                    <option value="Boras">Borås</option>
-                    <option value="Other">Other</option>
-                </select>
+                <input type="text" class="form-control bg-light text-dark" id="inputCity" th:field="*{city}">
             </div>
             <div class="form-group col-md-2">
                 <label for="inputZip">Zip code</label>

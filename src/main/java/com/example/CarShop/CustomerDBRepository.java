@@ -31,6 +31,61 @@ public class CustomerDBRepository {
         return customers;
     }
 
+    public void addCustomer(Customer customer) {
+
+        Connection conn = null;
+
+        String SqlStatement = "INSERT INTO CUSTOMER (NAME, EMAIL, ADDRESS, ADDRESS2, ZIPCODE, CITY, COUNTRY)" +
+                " VALUES('" +customer.getName() + "','" + customer.getEmail() + "','" + customer.getAddress() + "','" + customer.getAddress2() +"','" +
+                customer.getZipcode() + "','" + customer.getCity() + "','" + customer.getCountry()+ "')";
+
+        try {
+            conn = dataSource.getConnection();
+
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(SqlStatement);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void removeCustomer(int customerId) {
+
+        Connection conn = null;
+
+        String SqlStatement = "DELETE FROM CUSTOMER WHERE ID = " + customerId;
+
+        try {
+            conn = dataSource.getConnection();
+
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(SqlStatement);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void replace(Customer customer) {
+        if (customer.getId() > 0) {
+            removeCustomer(customer.getId());
+        }
+        addCustomer(customer);
+    }
+
     private Customer rsCustomer(ResultSet rs) throws SQLException {
         return new Customer(
                 rs.getInt("ID"),

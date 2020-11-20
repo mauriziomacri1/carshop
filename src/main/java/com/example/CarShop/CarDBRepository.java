@@ -172,8 +172,8 @@ public class CarDBRepository {
         return false;
     }
 
-    public void replace(int pos, Car car) {
-        if (car.getId() > 0) { // remove old car...
+    public void replace(Car car) {
+        if (car.getId() > 0) {
             removeCar(car.getId());
         }
         addCar(car);

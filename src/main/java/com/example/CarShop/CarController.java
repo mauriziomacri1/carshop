@@ -14,10 +14,10 @@ import javax.sql.DataSource;
 
 @Controller
 public class CarController {
-  //  CarRepository carrepos = new CarRepository();
+    //  CarRepository carrepos = new CarRepository();
 
-@Autowired
-private CarDBRepository carrepos;
+    @Autowired
+    private CarDBRepository carrepos;
 
     @Autowired
     private CustomerDBRepository cusrepos;
@@ -32,7 +32,7 @@ private CarDBRepository carrepos;
     public String search(Model model) {
         model.addAttribute("search", carrepos.getCars());
         return "search";
-        }
+    }
 
     @GetMapping("/carlist")
     public String carlist(Model model) {
@@ -67,21 +67,27 @@ private CarDBRepository carrepos;
     public String buyCar(Model model, @PathVariable int id) {
         Car car = carrepos.getCar(id);
         Customer cust = cusrepos.getCustomerList().get(0);
+        cust.setId(0);
         System.out.println("Customer name: " + cust.getName());
         model.addAttribute("car", car);
         model.addAttribute("id", id);
         model.addAttribute("customer", cust);
         return "buycar";
     }
+
     @PostMapping("/finalizepurchase/{id}")
     public String finalizePurchase(@ModelAttribute Customer customer, @PathVariable int id) {
         Car car = carrepos.getCar(id);
         car.setSold(true);
         System.out.println("Car sold!" + car.getSlug());
+        if (customer.getId() == 0)
+            cusrepos.addCustomer(customer);
         if (customer == null)
             System.out.println("Customer null");
         else
             System.out.println("Customer email" + customer.getEmail());
+
+
         return "redirect:/carlist";
     }
 
@@ -91,7 +97,7 @@ private CarDBRepository carrepos;
             carrepos.addCar(car);
 
         else {
-            carrepos.replace(id, car);
+            carrepos.replace(car);
         }
         return "redirect:/";
     }
