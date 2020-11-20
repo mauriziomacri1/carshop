@@ -84,6 +84,7 @@ public class CarController {
         int savedcustomer = 0;
         Car car = carrepos.getCar(id);
         car.setSold(true);
+        carrepos.updateCar(car);
         Purchase purchase = new Purchase();
         System.out.println("Car sold!" + car.getSlug());
         if (customer.getId() == 0)

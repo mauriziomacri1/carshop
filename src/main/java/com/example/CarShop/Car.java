@@ -61,7 +61,7 @@ public class Car {
         this.brand = brand;
     }
 
-    public Car(int id, String brand, String model, int miles, int year, int price, String description, String pictureUrl) {
+    public Car(int id, String brand, String model, int miles, int year, int price, String description, String pictureUrl, Boolean sold) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -70,7 +70,7 @@ public class Car {
         this.price = price;
         this.description = description;
         this.pictureUrl = pictureUrl;
-        this.sold = false;
+        this.sold = sold;
     }
 
     public String getBrand() {

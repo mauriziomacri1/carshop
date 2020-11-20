@@ -46,8 +46,8 @@ public class CarDBRepository {
                 rs.getInt("YEAR"),
                 rs.getInt("PRICE"),
                 rs.getString("DESCRIPTION"),
-                rs.getString("PICTUREURL"));
-        //     rs.getBoolean("SOLD"));
+                rs.getString("PICTUREURL"),
+                rs.getBoolean("SOLD"));
     }
 
     private List<Car> carList = new ArrayList<>();
@@ -67,6 +67,33 @@ public class CarDBRepository {
                 " VALUES(" + modelID + "," + car.getMiles() + "," + car.getYear() + "," + car.getPrice() + ", '" +
                 car.getDescription() + "', '" + car.getPictureUrl() + "', " + false + ")";
 
+        try {
+            conn = dataSource.getConnection();
+
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(SqlStatement);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public void updateCar(Car car) {
+        int brandID = getBrand(car.getBrand());
+        int modelID = getModel(car.getModel(), brandID);
+
+        Connection conn = null;
+
+        String SqlStatement = "UPDATE CARSTOCK " +
+                " SET CARMODELID ='" + modelID + "', MILES = " + car.getMiles() + ", YEAR = " + car.getYear() +
+                ", PRICE = " + car.getPrice() + ", DESCRIPTION = '" +
+                car.getDescription() + "', PICTUREURL = '" + car.getPictureUrl() + "', SOLD = " + car.isSold() +
+                " WHERE ID = " + car.getId();
         try {
             conn = dataSource.getConnection();
 
