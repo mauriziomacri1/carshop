@@ -12,6 +12,8 @@ public class Purchase {
     private Date deliverydate;
     private boolean delivered;
 
+    public Purchase() { }
+    
     public Purchase(int id, int customerid, int carstockid, Date purchasedate, int paidamount, int finalprice, Date deliverydate, boolean delivered) {
         this.id = id;
         this.customerid = customerid;
@@ -86,4 +88,7 @@ public class Purchase {
     public void setDelivered(boolean delivered) {
         this.delivered = delivered;
     }
+
+    public String formatDate(Date mydate) { return "'2020-11-20'"; }
+
 }

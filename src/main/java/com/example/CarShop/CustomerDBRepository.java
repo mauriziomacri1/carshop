@@ -31,7 +31,7 @@ public class CustomerDBRepository {
         return customers;
     }
 
-    public void addCustomer(Customer customer) {
+    public int addCustomer(Customer customer) {
 
         Connection conn = null;
 
@@ -43,7 +43,7 @@ public class CustomerDBRepository {
             conn = dataSource.getConnection();
 
             Statement stmt = conn.createStatement();
-            stmt.executeUpdate(SqlStatement);
+            return stmt.executeUpdate(SqlStatement);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -54,6 +54,7 @@ public class CustomerDBRepository {
                 e.printStackTrace();
             }
         }
+        return 0;
     }
 
     public void removeCustomer(int customerId) {

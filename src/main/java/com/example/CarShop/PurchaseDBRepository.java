@@ -1,4 +1,3 @@
-/*
 package com.example.CarShop;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +8,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,19 +31,41 @@ public class PurchaseDBRepository {
         }
         return purchase;
     }
-  */
-/*  private Purchase rsPurchase(ResultSet rs) throws SQLException {
+
+  private Purchase rsPurchase(ResultSet rs) throws SQLException {
         return new Purchase(
                 rs.getInt("ID"),
-                rs.getString("CUSTOMERID"),
+                rs.getInt("CUSTOMERID"),
                 rs.getInt("CARSTOCKID"),
                 rs.getDate("PURCHASEDATE"),
-                rs.getString("PAIDAMOUNT"),
-                rs.getString("FINALPRICE"),
-                rs.getString("DELIVERYDATE"),
-                rs.getString("DELIVERED"));
-    }*//*
+                rs.getInt("PAIDAMOUNT"),
+                rs.getInt("FINALPRICE"),
+                rs.getDate("DELIVERYDATE"),
+                rs.getBoolean("DELIVERED"));
+    }
+    public void addPurchase(Purchase purchase) {
 
+        Connection conn = null;
+
+        String SqlStatement = "INSERT INTO PURCHASE (CUSTOMERID, CARSTOCKID, PURCHASEDATE, PAIDAMOUNT, FINALPRICE, DELIVERYDATE, DELIVERED)" +
+                " VALUES(" + purchase.getCustomerid() + "," + purchase.getCarstockid() + "," + purchase.formatDate(purchase.getPurchasedate()) + "," + purchase.getPaidamount() + ", " +
+                purchase.getFinalprice() + ", " + purchase.formatDate(purchase.getDeliverydate()) + ", " + purchase.isDelivered() + ")";
+
+        try {
+            conn = dataSource.getConnection();
+
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(SqlStatement);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
 
-*/

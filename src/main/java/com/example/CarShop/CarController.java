@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 
 import javax.sql.DataSource;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Controller
 public class CarController {
@@ -22,6 +24,8 @@ public class CarController {
     @Autowired
     private CustomerDBRepository cusrepos;
 
+    @Autowired
+    private PurchaseDBRepository purchrepos;
 
     @GetMapping("/")
     public String homePage() {
@@ -77,17 +81,26 @@ public class CarController {
 
     @PostMapping("/finalizepurchase/{id}")
     public String finalizePurchase(@ModelAttribute Customer customer, @PathVariable int id) {
+        int savedcustomer = 0;
         Car car = carrepos.getCar(id);
         car.setSold(true);
+        Purchase purchase = new Purchase();
         System.out.println("Car sold!" + car.getSlug());
         if (customer.getId() == 0)
-            cusrepos.addCustomer(customer);
+           savedcustomer =  cusrepos.addCustomer(customer);
         if (customer == null)
             System.out.println("Customer null");
         else
             System.out.println("Customer email" + customer.getEmail());
-
-
+        purchase.setCustomerid(savedcustomer);
+        purchase.setCarstockid(id);
+        Date date = new Date();
+        purchase.setPurchasedate(date);
+        purchase.setPaidamount(car.getPrice());
+        purchase.setFinalprice(car.getPrice());
+        purchase.setDeliverydate(date);
+        purchase.setDelivered(false);
+        purchrepos.addPurchase(purchase);
         return "redirect:/carlist";
     }
 
