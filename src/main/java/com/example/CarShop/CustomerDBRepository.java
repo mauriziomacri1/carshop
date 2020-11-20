@@ -42,7 +42,7 @@ public class CustomerDBRepository {
 
             PreparedStatement ps = conn.prepareStatement("INSERT INTO CUSTOMER (NAME, EMAIL, ADDRESS, ADDRESS2, ZIPCODE, CITY, COUNTRY)" +
                     " VALUES('" +customer.getName() + "','" + customer.getEmail() + "','" + customer.getAddress() + "','" + customer.getAddress2() +"','" +
-                    customer.getZipcode() + "','" + customer.getCity() + "','" + customer.getCountry()+ "')");
+                    customer.getZipcode() + "','" + customer.getCity() + "','" + customer.getCountry()+ "')", Statement.RETURN_GENERATED_KEYS);
            // Statement stmt = conn.createStatement();
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
